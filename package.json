@@ -1,0 +1,30 @@
+{
+  "name": "college-mern",
+  "version": "1.0.0",
+  "description": "a mern stack app for college placements",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "nodejs",
+    "jwt",
+    "passport",
+    "express"
+  ],
+  "author": "Vijeth P H",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.17.2",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^7.4.2",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.15",
+    "nodemon": "^1.18.3"
+  }
+}
