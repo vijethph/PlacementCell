@@ -11,7 +11,7 @@ A MERN stack app for college placement stuff.
 * use the command `npm run dev` for running project. No need to run client and server separately, because I've installed 'concurrently' package and set it up.
 * after changes, do the usual pull request style. 
 * dummy data to push into `companies` collection in mongodb:
-```json
+```
 {
    company_name: 'J.P Morgan', category: 'Banking', branch: 'CSE',
    min_cgpa: 9.5, backlog: 2, ctc: '7.9 LPA', date_open: new Date(), date_close: new Date(), link:'jpmorgan.com'
