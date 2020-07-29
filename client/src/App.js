@@ -7,11 +7,24 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
 
+const footerStyles={
+    position:"fixed",
+    marginTop: "0px",
+    flexShrink: "none",
+    bottom: "0px",
+    left: "0px",
+    right: "0px",
+    marginBottom: "0px"
+};
+const bodystyle={
+    paddingBottom: "100px"
+
+};
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" style={bodystyle}>
           <Navbar />
           <Route exact path="/" component={Landing} />
           <div className="container">
@@ -19,6 +32,11 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
           </div>
+          <footer className="text-muted text-center bg-dark py-4" style={footerStyles}>
+  <div className="container">
+    <span className="text-white">Done By Sathya M and Vijeth P H</span>
+  </div>
+</footer>
         </div>
       </Router>
     )

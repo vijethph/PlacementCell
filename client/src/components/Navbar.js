@@ -13,12 +13,12 @@ class Landing extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link to="/login" className="nav-link">
-            Login
+            <button className="btn btn-outline-light">Login</button>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/register" className="nav-link">
-            Register
+            <button className="btn btn-outline-light">Register</button>
           </Link>
         </li>
       </ul>
@@ -28,12 +28,12 @@ class Landing extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
-            User
+            <button className="btn btn-outline-light">User</button>
           </Link>
         </li>
         <li className="nav-item">
           <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-            Logout
+            <button className="btn btn-outline-light">Logout</button>
           </a>
         </li>
       </ul>
@@ -60,7 +60,7 @@ class Landing extends Component {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                Home
+                <button className="btn btn-outline-light">Home</button>
               </Link>
             </li>
           </ul>

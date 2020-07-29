@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
+import CompaniesList from './CompaniesList'
 
 class Profile extends Component {
   constructor() {
@@ -46,6 +47,7 @@ class Profile extends Component {
             </tbody>
           </table>
         </div>
+        <CompaniesList/>
       </div>
     )
   }

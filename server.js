@@ -13,21 +13,22 @@ app.use(
   })
 )
 
-const mongoURI = 'INSERT YOUR MONGODB URI HERE'
+const mongoURI = 'mongodb://testingguy:college123@localhost:27017/college-mern'
 
 mongoose
   .connect(
     mongoURI,
-    { useNewUrlParser: true }
+    { useNewUrlParser: true,
+    useUnifiedTopology: true }
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
 
 var Users = require('./routes/Users')
-var Registrations = require('./routes/homeRouter')
+var Companies = require('./routes/Companies')
 
 app.use('/users', Users)
-app.use('/registrations',Registrations)
+app.use('/companies',Companies)
 
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)

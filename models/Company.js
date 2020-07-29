@@ -3,7 +3,7 @@ const { Timestamp } = require('mongodb');
 const Schema = mongoose.Schema
 
 // Create Schema
-const registrationSchema = new Schema({
+const companySchema = new Schema({
   company_name: {
     type: String,
     required:true
@@ -42,5 +42,5 @@ const registrationSchema = new Schema({
   }
 })
 
-var Registration = mongoose.model('Registration', registrationSchema);
-module.exports = Registration;
+var Company = mongoose.model('company', companySchema);
+module.exports = Company;
