@@ -6,6 +6,8 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
+import VideosList from './components/VideosList'
+import CompaniesList from './components/CompaniesList'
 
 const footerStyles={
     position:"fixed",
@@ -31,6 +33,8 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/videos" component={VideosList} />
+            <Route exact path="/companies/details" component={CompaniesList} />
           </div>
           <footer className="text-muted text-center bg-dark py-4" style={footerStyles}>
   <div className="container">

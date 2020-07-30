@@ -43,8 +43,12 @@ export const getProfile = user => {
 }
 
 export const getCompanies = company => {
+  const token = localStorage.usertoken
     return axios
-        .get('companies/details',{
+        .post('companies/details',{},{
+          headers:{
+            Authorization:"bearer "+token //This is format for sending authorization header
+          }
         })
         .then(response => {
             console.log(response)
@@ -53,4 +57,20 @@ export const getCompanies = company => {
         .catch(err => {
             console.log(err)
         })
+}
+
+export const getVideos = video => {
+    const token = localStorage.usertoken
+  return axios
+    .post('/videos', {},{
+      headers:{
+        Authorization:"bearer "+token
+      }
+    })
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
