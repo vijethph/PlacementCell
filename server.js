@@ -13,8 +13,7 @@ app.use(
   })
 )
 
-//const mongoURI = 'YOUR MONGO URI HERE'
-const mongoURI = 'mongodb://localhost:27017/college-mern'
+const mongoURI = 'YOUR MONGO URI HERE'
 mongoose
   .connect(
     mongoURI,

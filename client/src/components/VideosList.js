@@ -34,8 +34,9 @@ class VideosList extends Component {
                   <ReactPlayer url={this.state.currentVideo.link} controls='true' />
                 </div> 
               </div>
-              <div className="card-body text-center text-white" style={{backgroundColor: 'grey'}}>
-                <h5 className="card-title">{this.state.currentVideo.topic}</h5>
+              <div className="card-body text-center bg-primary text-white">
+                <h5 className="card-title ">{this.state.currentVideo.topic}</h5>
+                <hr style={{border: "1px solid black"}}/>
                 <p className="card-text">{this.state.currentVideo.subtopic}</p>
               </div>
             </div>
@@ -48,9 +49,10 @@ class VideosList extends Component {
             this.state.videos.map((value)=>{
               return (
                 <div className="col btn" onClick={()=>{this.setState({currentVideo:value})}} >
-                  <div className="card text-white" style={{backgroundColor: 'grey'}} >
+                  <div className="card" >
+                    <div className="card-header bg-info text-white"><h5>{value.topic}</h5>
+                    </div>
                     <div className="card-body">
-                      <h5 className="card-title">{value.topic}</h5>
                       <p className="card-text">{value.subtopic}</p>
                      </div>
                   </div>

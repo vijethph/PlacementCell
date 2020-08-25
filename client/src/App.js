@@ -1,26 +1,27 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login'
-import Register from './components/Register'
-import Profile from './components/Profile'
-import VideosList from './components/VideosList'
-import CompaniesList from './components/CompaniesList'
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
+import VideosList from "./components/VideosList";
+import CompaniesList from "./components/CompaniesList";
+import Quiz from "./components/Quiz";
+import QuizSummary from "./components/QuizSummary";
 
-const footerStyles={
-    position:"fixed",
-    marginTop: "0px",
-    flexShrink: "none",
-    bottom: "0px",
-    left: "0px",
-    right: "0px",
-    marginBottom: "0px"
+const footerStyles = {
+  position: "fixed",
+  marginTop: "0px",
+  flexShrink: "none",
+  bottom: "0px",
+  left: "0px",
+  right: "0px",
+  marginBottom: "0px",
 };
-const bodystyle={
-    paddingBottom: "100px"
-
+const bodystyle = {
+  paddingBottom: "100px",
 };
 class App extends Component {
   render() {
@@ -35,16 +36,23 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/videos" component={VideosList} />
             <Route exact path="/companies/details" component={CompaniesList} />
+            <Route exact path="/quiz" component={Quiz} />
+            <Route exact path="/quizSummary" component={QuizSummary} />
           </div>
-          <footer className="text-muted text-center bg-dark py-4" style={footerStyles}>
-  <div className="container">
-    <span className="text-white">Done By Sathya M and Vijeth P H</span>
-  </div>
-</footer>
+          <footer
+            className="text-muted text-center bg-dark py-4"
+            style={footerStyles}
+          >
+            <div className="container">
+              <span className="text-white">
+                Done By Sathya M and Vijeth P H
+              </span>
+            </div>
+          </footer>
         </div>
       </Router>
-    )
+    );
   }
 }
 
-export default App
+export default App;

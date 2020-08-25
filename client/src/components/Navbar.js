@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 class Landing extends Component {
   logOut(e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
+    e.preventDefault();
+    localStorage.removeItem("usertoken");
+    this.props.history.push(`/`);
   }
 
   render() {
@@ -22,18 +22,23 @@ class Landing extends Component {
           </Link>
         </li>
       </ul>
-    )
+    );
 
     const userLink = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
+          <Link to="/quiz" className="nav-link">
+            <button className="btn btn-outline-light">Quiz</button>
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/companies/details" className="nav-link">
-            <button className="btn btn-outline-light">Companies</button>   
+            <button className="btn btn-outline-light">Companies</button>
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/videos" className="nav-link">
-            <button className="btn btn-outline-light">Aptitude</button> 
+            <button className="btn btn-outline-light">Aptitude</button>
           </Link>
         </li>
         <li className="nav-item">
@@ -47,7 +52,7 @@ class Landing extends Component {
           </a>
         </li>
       </ul>
-    )
+    );
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -77,8 +82,8 @@ class Landing extends Component {
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>
       </nav>
-    )
+    );
   }
 }
 
-export default withRouter(Landing)
+export default withRouter(Landing);
