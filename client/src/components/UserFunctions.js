@@ -74,3 +74,19 @@ export const getVideos = video => {
       console.log(err)
     })
 }
+
+export const getQuestions = question => {
+  const token = localStorage.usertoken
+return axios
+  .post('/quiz', {},{
+    headers:{
+      Authorization:"bearer "+token
+    }
+  })
+  .then(response => {
+    return response.data
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
