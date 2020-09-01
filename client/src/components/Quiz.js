@@ -5,7 +5,8 @@ import swal from "sweetalert";
 import classnames from "classnames";
 import Toastify from "toastify-js";
 
-import questions from "../questions.json";
+//import questions from "../questions.json";
+import {getQuestions} from './UserFunctions';
 import isEmpty from "../is-empty";
 
 import correctNotification from "../assets/audio/correct-answer.mp3";
@@ -16,7 +17,7 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions,
+      questions:[],
       currentQuestion: {},
       nextQuestion: {},
       previousQuestion: {},
@@ -38,6 +39,12 @@ class Quiz extends Component {
   }
 
   componentDidMount() {
+    getQuestions().then(res => {
+      this.setState({ questions: res,currentQuestion:res[0],numberOfQuestions:res.length,answer:res[0].answer });
+      //I'm changing the state here because 
+      //if I don't do that empty components are being rendered for the first question
+    });
+
     const {
       questions,
       currentQuestion,

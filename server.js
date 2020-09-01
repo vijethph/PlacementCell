@@ -13,7 +13,7 @@ app.use(
   })
 )
 
-const mongoURI = 'YOUR MONGO URI HERE'
+const mongoURI = 'mongodb://localhost:27017/college-mern'
 mongoose
   .connect(
     mongoURI,
@@ -26,10 +26,12 @@ mongoose
 var Users = require('./routes/Users')
 var Companies = require('./routes/Companies')
 var Videos = require('./routes/Videos')
+var Questions = require('./routes/Questions');
 
 app.use('/users', Users)
 app.use('/companies',Companies)
 app.use('/videos',Videos)
+app.use('/quiz',Questions);
 
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
