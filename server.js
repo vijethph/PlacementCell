@@ -27,11 +27,13 @@ var Users = require('./routes/Users')
 var Companies = require('./routes/Companies')
 var Videos = require('./routes/Videos')
 var Questions = require('./routes/Questions');
+var Discussions = require('./routes/Discussions');
 
 app.use('/users', Users)
 app.use('/companies',Companies)
 app.use('/videos',Videos)
 app.use('/quiz',Questions);
+app.use('/discussion',Discussions);
 
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
