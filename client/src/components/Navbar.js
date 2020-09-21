@@ -42,6 +42,11 @@ class Landing extends Component {
           </Link>
         </li>
         <li className="nav-item">
+          <Link to="/discussion" className="nav-link">
+            <button className="btn btn-outline-light">Forum</button>
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/profile" className="nav-link">
             <button className="btn btn-outline-light">User</button>
           </Link>
