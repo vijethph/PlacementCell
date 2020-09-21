@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import M from "materialize-css";
 import swal from "sweetalert";
 import classnames from "classnames";
 import Toastify from "toastify-js";
