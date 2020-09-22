@@ -126,3 +126,79 @@ export const getDiscussion = discussion =>{
       console.log(err)
     })
 }
+
+// export const putDiscussion = discussion =>{
+//   const token = localStorage.usertoken;
+//   const decoded = jwt_decode(token);
+//   return axios
+//     .put('/discussion',{
+//       headers:{
+//         Authorization:"bearer "+token
+//       },
+//       data:{"discussionId":discussion._id,"title":discussion.title,"description":discussion.description,"email":decoded.email}
+//     })
+//     .then(response=>{
+//       console.log(response)
+//       return response.data
+//     })
+//     .catch(err=>{
+//       console.log(err)
+//     })
+// }
+
+export const deleteDiscussion = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token);
+  return axios
+    .delete('/discussion',{
+      headers:{
+        Authorization:"bearer "+token
+      },
+      data:{"discussionId":discussion._id,"email":decoded.email}
+    })
+    .then(response=>{
+      console.log(response)
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+export const postComment = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token)
+    
+  return axios
+    .post('/discussion/comments',{"comment":discussion.comment,"discussionId":discussion.discussionId,"first_name":decoded.first_name,"last_name":decoded.last_name,"email":decoded.email},{
+      headers:{
+        Authorization:"bearer "+token
+      }
+    })
+    .then(response=>{
+      console.log('Success')
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+export const deleteComment = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token);
+  return axios
+    .delete('/discussion/comments',{
+      headers:{
+        Authorization:"bearer "+token
+      },
+      data:{"discussionId":discussion.discussionId,"commentId":discussion.commentId,"email":decoded.email}
+    })
+    .then(response=>{
+      console.log(response)
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
