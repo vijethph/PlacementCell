@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
-
+import swal from 'sweetalert'
 class Register extends Component {
   constructor() {
     super()
@@ -30,7 +30,15 @@ class Register extends Component {
     }
 
     register(newUser).then(res => {
-      this.props.history.push(`/login`)
+      console.log(res);
+      if(res.status){
+        swal("Success", res.status, "success");
+        this.props.history.push(`/login`);
+      }
+      else{
+        swal("Error", res.error, "error");
+        this.setState({first_name:"",last_name:"",email:"",password:""});
+      }
     })
   }
 

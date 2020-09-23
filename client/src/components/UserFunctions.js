@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import jwt_decode from 'jwt-decode'
 export const register = newUser => {
   return axios
     .post('users/register', {
@@ -9,7 +9,8 @@ export const register = newUser => {
       password: newUser.password
     })
     .then(response => {
-      console.log('Registered')
+      //console.log('Registered')
+      return response.data;
     })
 }
 
@@ -20,8 +21,16 @@ export const login = user => {
       password: user.password
     })
     .then(response => {
-      localStorage.setItem('usertoken', response.data)
-      return response.data
+      if(response.data.token){
+        console.log("Verified");
+        localStorage.setItem('usertoken', response.data.token);
+        return response.data;
+      }
+      else if(response.data.error){
+        return response.data;
+      }
+      else
+        return response.data;
     })
     .catch(err => {
       console.log(err)
@@ -89,4 +98,116 @@ return axios
   .catch(err => {
     console.log(err)
   })
+}
+
+export const postDiscussion = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token)
+    
+  return axios
+    .post('/discussion',{"title":discussion.title,"description":discussion.description,"first_name":decoded.first_name,"last_name":decoded.last_name,"email":decoded.email},{
+      headers:{
+        Authorization:"bearer "+token
+      }
+    })
+    .then(response=>{
+      console.log('Success')
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+export const getDiscussion = discussion =>{
+  const token = localStorage.usertoken;
+  return axios
+    .get('/discussion',{
+      headers:{
+        Authorization:"bearer "+token
+      }
+    })
+    .then(response=>{
+      console.log(response)
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+// export const putDiscussion = discussion =>{
+//   const token = localStorage.usertoken;
+//   const decoded = jwt_decode(token);
+//   return axios
+//     .put('/discussion',{
+//       headers:{
+//         Authorization:"bearer "+token
+//       },
+//       data:{"discussionId":discussion._id,"title":discussion.title,"description":discussion.description,"email":decoded.email}
+//     })
+//     .then(response=>{
+//       console.log(response)
+//       return response.data
+//     })
+//     .catch(err=>{
+//       console.log(err)
+//     })
+// }
+
+export const deleteDiscussion = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token);
+  return axios
+    .delete('/discussion',{
+      headers:{
+        Authorization:"bearer "+token
+      },
+      data:{"discussionId":discussion._id,"email":decoded.email}
+    })
+    .then(response=>{
+      console.log(response)
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+export const postComment = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token)
+    
+  return axios
+    .post('/discussion/comments',{"comment":discussion.comment,"discussionId":discussion.discussionId,"first_name":decoded.first_name,"last_name":decoded.last_name,"email":decoded.email},{
+      headers:{
+        Authorization:"bearer "+token
+      }
+    })
+    .then(response=>{
+      console.log('Success')
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+}
+
+export const deleteComment = discussion =>{
+  const token = localStorage.usertoken;
+  const decoded = jwt_decode(token);
+  return axios
+    .delete('/discussion/comments',{
+      headers:{
+        Authorization:"bearer "+token
+      },
+      data:{"discussionId":discussion.discussionId,"commentId":discussion.commentId,"email":decoded.email}
+    })
+    .then(response=>{
+      console.log(response)
+      return response.data
+    })
+    .catch(err=>{
+      console.log(err)
+    })
 }

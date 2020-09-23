@@ -9,6 +9,13 @@ import "../node_modules/toastify-js/src/toastify.js";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
+import JavascriptTimeAgo from 'javascript-time-ago'
+ 
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
+ 
+JavascriptTimeAgo.addLocale(en)
+JavascriptTimeAgo.addLocale(ru)
 
 ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();

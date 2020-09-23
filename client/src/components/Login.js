@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { login } from './UserFunctions'
-
+import swal from 'sweetalert';
 class Login extends Component {
   constructor() {
     super()
@@ -26,8 +26,16 @@ class Login extends Component {
     }
 
     login(user).then(res => {
-      if (res) {
+      //console.log(res.error);
+      if (res.token) {
+        //console.log(res.token);
         this.props.history.push(`/profile`)
+      }
+      else if(res.error){
+        //console.log(res.error);
+        //alert(res.error);
+        swal("Error", res.error, "error");
+        this.setState({email:"",password:""})
       }
     })
   }

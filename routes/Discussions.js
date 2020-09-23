@@ -26,6 +26,8 @@ discussions.route('/')
    Discussion.create({
        "title":req.body.title,
        "description":req.body.description,
+       "first_name": req.body.first_name,
+       "last_name": req.body.last_name,
        "email":req.body.email
    })
    .then((discussion)=>{
@@ -118,7 +120,7 @@ discussions.route('/comments')
     Discussion.findById(req.body.discussionId)
             .then((discussion) => {
                 if (discussion != null) {
-                    discussion.comments.push({"comment":req.body.comment,"email":req.body.email});
+                    discussion.comments.push({"comment":req.body.comment,"first_name":req.body.first_name,"last_name":req.body.last_name,"email":req.body.email});
                     discussion.save()
                         .then((discussion) => {
                             res.statusCode = 200;
