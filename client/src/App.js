@@ -47,7 +47,7 @@ class App extends Component {
           >
             <div className="container">
               <span className="text-white">
-                Done By Sathya M and Vijeth P H
+                Developed By Sathya M and Vijeth P H
               </span>
             </div>
           </footer> */}

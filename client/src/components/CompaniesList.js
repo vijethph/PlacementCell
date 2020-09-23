@@ -25,7 +25,7 @@ class CompaniesList extends Component {
         <div className="row">
           <table className="table table-hover table-bordered">
             <thead>
-              <tr className="bg-success">
+              <tr className="bg-info">
                 <th scope="col">Company Name</th>
                 <th scope="col">Category</th>
                 <th scope="col">Branch</th>
@@ -49,7 +49,7 @@ class CompaniesList extends Component {
                     <td>{listValue.ctc}</td>
                     <td>{new Date(listValue.date_open).toString()}</td>
                     <td>{new Date(listValue.date_close).toString()}</td>
-                    <td>{listValue.link}</td>
+                    <td><a href={listValue.link}>{listValue.link}</a></td>
                   </tr>
                 );
               })}
