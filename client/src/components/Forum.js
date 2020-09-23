@@ -6,7 +6,7 @@ import { deleteDiscussion } from './UserFunctions'
 import { postComment } from './UserFunctions'
 import { deleteComment } from './UserFunctions'
 //import swal from '@sweetalert/with-react'
-
+import ReactTimeAgo from 'react-time-ago'
 class Forum extends Component {
     constructor() {
         super()
@@ -159,29 +159,30 @@ class Forum extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container ">
                 <div className="row text-center">
                     <h1>Post a query:</h1>
                 </div>
                 <br></br>
 
-                <div className="row-12">
+                <div className="row-sm-12 border border-primary rounded">
                     <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <label className="text-muted">Title</label>
-                            <input type="text" className="form-control" name="title" value={this.state.title} onChange={this.handleInputChange} />
+                        <div className="form-group m-3">
+                            <label className="text-muted font-weight-bold">Title</label>
+                            <input type="text" className="form-control" name="title" value={this.state.title} onChange={this.handleInputChange}/>
                         </div>
 
-                        <div className="form-group">
-                            <label className="text-muted">Description</label>
+                        <div className="form-group m-3">
+                            <label className="text-muted font-weight-bold">Description</label>
                             <textarea className="form-control" name="description" value={this.state.description} rows="7" onChange={this.handleInputChange}></textarea>
                         </div>
 
-                        <div className="text-center">
+                        <div className="text-center m-3">
                             <button type="submit" className="btn btn-primary">
                                 Post
                             </button>
                         </div>
+                        
                     </form>
                 </div>
                 <br></br>
@@ -196,7 +197,7 @@ class Forum extends Component {
                             this.state.discussions.map((value) => {
                                 return (
                                     <div className="row-12">
-                                        <div className="card border-primary text-center">
+                                        <div className="card border-primary onHover">
                                             <button className="btn"
                                                 data-toggle="collapse"
                                                 data-target={"#" + value._id}
@@ -212,7 +213,7 @@ class Forum extends Component {
                                                     <blockquote className="blockquote mb-0">
                                                         <p>{value.description}</p>
                                                         <footer className="blockquote-footer"> By <cite title="Source Title">{value.first_name + " " + value.last_name}</cite></footer>
-                                                        <button class="btn float-right" onClick={this.EditDisplay}><i class="fas fa-pencil-alt"></i></button>
+                                                        {/* <button class="btn float-right" onClick={this.EditDisplay}><i class="fas fa-pencil-alt"></i></button> */}
                                                         <button class="btn float-right" onClick={this.DeleteDiscusssion}><i class="fa fa-trash"></i></button>
                                                         <button class="btn float-right"
                                                             data-toggle="collapse"
@@ -228,16 +229,34 @@ class Forum extends Component {
                                                     {
                                                         value.comments.map((com) => {
                                                             return (
-                                                                <div className="card">
-                                                                    <div className="card-header">
-                                                                        <p>{com.first_name + com.last_name}</p>
-                                                                    </div>
-                                                                    <div className="card-body">
-                                                                        <div className="row">
-                                                                            <div className="col-10"><p>{com.comment}</p></div>
-                                                                            <button class="btn "><i class="fas fa-pencil-alt"></i></button>
-                                                                            <button class="btn" id={com._id} onClick={this.DeleteComment}><i class="fa fa-trash"></i></button>
-                                                                        </div>
+                                                                // <div className="card">
+                                                                //     <div className="card-header">
+                                                                //         <p>{com.first_name + com.last_name}</p>
+                                                                //     </div>
+                                                                //     <div className="card-body">
+                                                                //         <div className="row">
+                                                                //             <div className="col-10"><p>{com.first_name + com.last_name +":" +com.comment}</p></div>
+                                                                //             <button class="btn "><i class="fas fa-pencil-alt"></i></button>
+                                                                //             <button class="btn" id={com._id} onClick={this.DeleteComment}><i class="fa fa-trash"></i></button>
+                                                                //         </div>
+                                                                //     </div>
+                                                                // </div>
+                                                                <div className="media mb-3">
+                                                                    <img
+                                                                        className="mr-3 bg-light rounded"
+                                                                        width="48"
+                                                                        height="48"
+                                                                        src={`https://api.adorable.io/avatars/48/${com.first_name.toLowerCase()}@adorable.io.png`}
+                                                                        alt={com.first_name}
+                                                                    />
+
+                                                                    <div className="media-body p-2 shadow-sm rounded bg-light border">
+                                                                        <small className="float-right text-muted">{
+                                                                           <ReactTimeAgo date={new Date(com.updatedAt)}/>
+                                                                        }</small>
+                                                                        <h6 className="mt-0 mb-1 text-muted">{com.first_name}</h6>
+                                                                        {com.comment}
+                                                                        <button class="btn float-right" id={com._id} onClick={this.DeleteComment}><i class="fa fa-trash"></i></button>
                                                                     </div>
                                                                 </div>
                                                             )

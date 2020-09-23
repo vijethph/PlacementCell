@@ -49,7 +49,7 @@ class VideosList extends Component {
             this.state.videos.map((value)=>{
               return (
                 <div className="col btn" onClick={()=>{this.setState({currentVideo:value})}} >
-                  <div className="card" >
+                  <div className="card onHover" >
                     <div className="card-header bg-info text-white"><h5>{value.topic}</h5>
                     </div>
                     <div className="card-body">
