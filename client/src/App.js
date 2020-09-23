@@ -41,7 +41,7 @@ class App extends Component {
             <Route exact path="/quizSummary" component={QuizSummary} />
             <Route exact path="/discussion" component={Forum} />
           </div>
-          <footer
+          {/* <footer
             className="text-muted text-center bg-dark py-4"
             style={footerStyles}
           >
@@ -50,7 +50,7 @@ class App extends Component {
                 Done By Sathya M and Vijeth P H
               </span>
             </div>
-          </footer>
+          </footer> */}
         </div>
       </Router>
     );
