@@ -254,7 +254,7 @@ class Forum extends Component {
                                                                         <small className="float-right text-muted">{
                                                                            <ReactTimeAgo date={new Date(com.updatedAt)}/>
                                                                         }</small>
-                                                                        <h6 className="mt-0 mb-1 text-muted">{com.first_name}</h6>
+                                                                        <h6 className="mt-0 mb-1 text-muted">{com.first_name + " " + com.last_name}</h6>
                                                                         {com.comment}
                                                                         <button class="btn float-right" id={com._id} onClick={this.DeleteComment}><i class="fa fa-trash"></i></button>
                                                                     </div>
