@@ -26,6 +26,11 @@ class Landing extends Component {
 
     const userLink = (
       <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+          <Link to="/ide" className="nav-link">
+            <button className="btn btn-outline-light">IDE</button>
+          </Link>
+        </li>
         <li className="nav-item">
           <Link to="/quiz" className="nav-link">
             <button className="btn btn-outline-light">Quiz</button>

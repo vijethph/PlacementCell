@@ -15,7 +15,7 @@
     "passport",
     "express"
   ],
-  "author": "Sathya M",
+  "author": "Sathya M, Vijeth P H",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.0",

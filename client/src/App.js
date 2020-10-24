@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import VideosList from "./components/VideosList";
 import CompaniesList from "./components/CompaniesList";
 import Quiz from "./components/Quiz";
+import IDE from "./components/IDE";
 import QuizSummary from "./components/QuizSummary";
 import Forum from "./components/Forum";
 
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/videos" component={VideosList} />
             <Route exact path="/companies/details" component={CompaniesList} />
+            <Route exact path="/ide" component={IDE} />
             <Route exact path="/quiz" component={Quiz} />
             <Route exact path="/quizSummary" component={QuizSummary} />
             <Route exact path="/discussion" component={Forum} />
