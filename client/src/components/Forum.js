@@ -272,7 +272,7 @@ class Forum extends Component {
           </form>
         </div>
         <br></br>
-
+        <hr></hr>
         <div className="row">
           <h1>Discussions</h1>
         </div>
@@ -281,7 +281,7 @@ class Forum extends Component {
             {this.state.discussions.map((value) => {
               return (
                 <div className="row-12">
-                  <div className="card border-primary onHover">
+                  <div className="card border-primary">
                     <button
                       className="btn"
                       data-toggle="collapse"
@@ -290,25 +290,19 @@ class Forum extends Component {
                         this.setState({ currentDiscussion: value });
                       }}
                     >
-                      <div className="card-header bg-info text-white">
-                        <span>
-                          <h5 className="text-uppercase font-weight-bold">
-                            {value.title}
-                          </h5>
-                        </span>
+                      <div className="media-body card-header bg-dark text-white">
+                        <h4 className="card-title text-left">{value.title}</h4>
+                        <p className="text-right">
+                          <i class="fa fa-user"></i> By{" "}
+                          {value.first_name + " " + value.last_name}
+                        </p>
                       </div>
                       <div className="card-body">
-                        <blockquote className="blockquote mb-0">
+                        <blockquote className="blockquote text-left card-text mb-0">
                           <p>{value.description}</p>
-                          <footer className="blockquote-footer">
-                            {" "}
-                            By{" "}
-                            <cite title="Source Title">
-                              {value.first_name + " " + value.last_name}
-                            </cite>
-                          </footer>
+
                           <button
-                            class="btn float-right"
+                            class="btn btn-primary btn-sm m-2 float-right"
                             data-toggle="collapse"
                             data-target={"#" + this.count}
                             onClick={() => {
@@ -318,7 +312,7 @@ class Forum extends Component {
                               });
                             }}
                           >
-                            <i class="fas fa-pencil-alt"></i>
+                            Edit Discussion <i class="fas fa-pencil-alt"></i>
                           </button>
                           {
                             <div>
@@ -363,20 +357,20 @@ class Forum extends Component {
                             </div>
                           }
                           <button
-                            class="btn float-right"
+                            class="btn btn-danger btn-sm m-2 float-right"
                             onClick={this.DeleteDiscusssion}
                           >
-                            <i class="fa fa-trash"></i>
+                            Delete Discussion <i class="fa fa-trash"></i>
                           </button>
                           <button
-                            class="btn float-right"
+                            class="btn btn-warning btn-sm m-2 float-right"
                             data-toggle="collapse"
                             data-target={"#" + value._id}
                             onClick={() => {
                               this.setState({ currentDiscussion: value });
                             }}
                           >
-                            <i class="fas fa-sort-down"></i>
+                            View Comments <i class="fas fa-chevron-down"></i>
                           </button>
                         </blockquote>
                       </div>
@@ -408,25 +402,27 @@ class Forum extends Component {
 
                               <div className="media-body p-2 shadow-sm rounded bg-light border">
                                 <small className="float-right text-muted">
+                                  <i class="fa fa-calendar"></i>{" "}
                                   {
                                     <ReactTimeAgo
                                       date={new Date(com.updatedAt)}
                                     />
                                   }
                                 </small>
-                                <h6 className="mt-0 mb-1 text-muted">
+                                <h5 className="mt-0 mb-1 text-muted">
+                                  <i class="fa fa-user"></i>{" "}
                                   {com.first_name + " " + com.last_name}
-                                </h6>
+                                </h5>
                                 {com.comment}
                                 <button
-                                  class="btn float-right"
+                                  class="btn btn-danger btn-sm m-2 float-right"
                                   id={com._id}
                                   onClick={this.DeleteComment}
                                 >
-                                  <i class="fa fa-trash"></i>
+                                  Delete Comment <i class="fa fa-trash"></i>
                                 </button>
                                 <button
-                                  class="btn float-right"
+                                  class="btn btn-info btn-sm m-2 float-right"
                                   data-toggle="collapse"
                                   data-target={"#" + this.commentCount}
                                   onClick={() => {
@@ -437,7 +433,7 @@ class Forum extends Component {
                                   }}
                                   id={com._id}
                                 >
-                                  <i class="fas fa-pencil-alt"></i>
+                                  Edit Comment <i class="fas fa-pencil-alt"></i>
                                 </button>
                                 {
                                   <div>
@@ -488,7 +484,7 @@ class Forum extends Component {
                             className="btn btn-primary col-3 offset-1"
                             onClick={this.AddComment}
                           >
-                            Send
+                            <i class="fa fa-paper-plane"></i> Send
                           </button>
                         </div>
                       </div>
