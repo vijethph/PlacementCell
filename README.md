@@ -6,7 +6,7 @@
 [![GitHub license](https://img.shields.io/github/license/vijethph/PlacementCell?style=flat-square)](https://github.com/vijethph/PlacementCell/blob/master/LICENSE)
 [![made-with-react](https://img.shields.io/badge/made%20with-react-143d59.svg?style=for-the-badge&labelColor=f4b41a)](https://reactjs.org)
 [![forthebadge](https://forthebadge.com/images/badges/fo-real.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-reason.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
 <br />
 <p align="center">
