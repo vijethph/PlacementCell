@@ -122,7 +122,9 @@ class Forum extends Component {
     };
     // console.log(data);
     putDiscussion(data).then((res) => {
-      console.log(res);
+      //console.log(res);
+      this.props.history.push(`/discussion`);
+      window.location.reload();
     });
     this.setState({ currentDiscussion: "" });
     event.preventDefault();
@@ -210,7 +212,9 @@ class Forum extends Component {
     };
     console.log(data);
     putComment(data).then((res) => {
-      console.log(res);
+      //console.log(res);
+      this.props.history.push(`/discussion`);
+      window.location.reload();
     });
     this.setState({ currentComment: "" });
     event.preventDefault();
