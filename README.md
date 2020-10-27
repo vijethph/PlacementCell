@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/vijethph/PlacementCell?color=blue&style=flat-square)](https://github.com/vijethph/PlacementCell/network)
 [![GitHub stars](https://img.shields.io/github/stars/vijethph/PlacementCell?color=yellow&style=flat-square)](https://github.com/vijethph/PlacementCell/stargazers)
 [![GitHub license](https://img.shields.io/github/license/vijethph/PlacementCell?style=flat-square)](https://github.com/vijethph/PlacementCell/blob/master/LICENSE)
-[![made-with-react](https://img.shields.io/badge/made%20with-react-143d59.svg?style=for-the-badge&labelColor=f4b41a)](https://reactjs.org)
+[![made-with-react](https://img.shields.io/badge/made%20with-react-143d59.svg?style=for-the-badge&labelColor=f4b41a&logo=react)](https://reactjs.org)
 [![forthebadge](https://forthebadge.com/images/badges/fo-real.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-energy-drinks.svg)](https://forthebadge.com)
 
@@ -17,7 +17,7 @@
   <h2 align="center">Placement Cell</h2>
 
   <p align="center">
-    A MEAN Stack App that provides a recruitment preparation portal for students.
+    A MERN Stack App that provides a recruitment preparation portal for students.
     <br />
     <br />
     <a href="https://github.com/vijethph/PlacementCell/issues">Report Bug</a>
@@ -107,7 +107,7 @@ The app should be running in `http://localhost:3000` in your browser.
 
 ## Usage
 
-Once the app starts, you can create an account in `Register` page, and then login as student to find the various features of this project. Optionally, you can import the companies details using the MongoDB dump named `dump.zip` in project folder. You can watch practice videos, have some discussion with your peers, and test yourself in quiz.
+Once the app starts, you can create an account in `Register` page, and then login as student to find the various features of this project. Optionally, you can import the companies details using the MongoDB dump named `dump.zip` in project folder, using the command `mongorestore dump`. You can watch practice videos, have some discussion with your peers, and test yourself in quiz.
 
 You can also use the code compiler and try to improve your programming skills. You can view the recruitment updates of companies in `Companies` dashboard.
 
