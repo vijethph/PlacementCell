@@ -1,10 +1,11 @@
 {
-  "name": "college-mern",
+  "name": "PlacementCell",
   "version": "1.0.0",
   "description": "a mern stack app for college placements",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
