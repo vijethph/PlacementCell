@@ -13,7 +13,7 @@ app.use(
   })
 );
 
-const mongoURI = "YOUR_MONGODB_URI_HERE";
+const mongoURI = process.env.MONGO_URI;
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Connected"))
@@ -30,6 +30,11 @@ app.use("/companies", Companies);
 app.use("/videos", Videos);
 app.use("/quiz", Questions);
 app.use("/discussion", Discussions);
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build'))
+});
 
 app.listen(port, function () {
   console.log("Server is running on port: " + port);
