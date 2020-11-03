@@ -43,7 +43,7 @@ export default class IDE extends Component {
         boddy.set("input", this.state.inputthings);
     }
 
-    boddy.append("client_secret", "YOUR_HACKEREARTH_API_KEY_HERE");
+    boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
     //boddy.append('lang', 'PYTHON3');
     boddy.append("source", this.state.code);
     axios({
@@ -70,7 +70,7 @@ export default class IDE extends Component {
    fetch('https://api.hackerearth.com/v3/code/compile/',{
             method:'POST',
             body: JSON.stringify({
-            client_secret: "5db3f1c12c59caa1002d1cb5757e72c96d969a1a",
+            client_secret: process.env.REACT_APP_HACKEREARTH_API_KEY,
 		lang: 'PYTHON3',
       source: this.state.code,
 	}),
@@ -108,7 +108,7 @@ export default class IDE extends Component {
         boddy.set("input", this.state.inputthings);
     }
 
-    boddy.append("client_secret", "59d794bdeab765466ead6461da60439488128aa3");
+    boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
     //boddy.append('lang', 'PYTHON3');
     boddy.append("source", this.state.code);
     axios({
