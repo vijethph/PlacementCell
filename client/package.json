@@ -17,7 +17,7 @@
     "react-helmet": "^6.1.0",
     "react-player": "^2.6.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.0.3",
     "react-time-ago": "^6.0.1",
     "sweetalert": "^2.1.2",
     "toastify-js": "^1.9.1",
@@ -30,5 +30,11 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000",
-  "devDependencies": {}
+  "devDependencies": {},
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
