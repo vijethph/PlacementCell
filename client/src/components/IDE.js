@@ -7,6 +7,11 @@ require("codemirror/mode/javascript/javascript");
 require("codemirror/lib/codemirror.css");
 require("codemirror/theme/material.css");
 
+let postBody = {
+  lang: "",
+  source: "",
+  callback: "",
+};
 let boddy = new FormData();
 let inputisthere = false;
 
@@ -24,42 +29,66 @@ export default class IDE extends Component {
   compileCode() {
     switch (this.state.language) {
       case "text/x-csrc":
-        boddy.set("lang", "C");
+        postBody["lang"] = "C";
+        //boddy.set("lang", "C");
         break;
       case "text/x-c++src":
-        boddy.set("lang", "CPP14");
+        postBody["lang"] = "CPP14";
+        //boddy.set("lang", "CPP14");
         break;
       case "text/x-java":
-        boddy.set("lang", "JAVA");
+        postBody["lang"] = "JAVA";
+        //boddy.set("lang", "JAVA");
         break;
       case "python":
-        boddy.set("lang", "PYTHON3");
+        postBody["lang"] = "PYTHON3";
+        //boddy.set("lang", "PYTHON3");
         break;
     }
-    console.log("code status:" + boddy.get("lang"));
-    
-    if(inputisthere==true){
-        console.log(this.state.inputthings);
-        boddy.set("input", this.state.inputthings);
+    //console.log("code status:" + boddy.get("lang"));
+
+    if (inputisthere == true) {
+      console.log(this.state.inputthings);
+      postBody["input"] = this.state.inputthings;
+      //boddy.set("input", this.state.inputthings);
     }
 
-    boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
+    //boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
     //boddy.append('lang', 'PYTHON3');
-    boddy.append("source", this.state.code);
+    //boddy.append("source", this.state.code);
+    //boddy.append("callback", "https://336a7eef90c3.ngrok.io/codehook");
+
+    postBody["source"] = this.state.code;
+    postBody["callback"] = window.location.origin + "/codehook";
+
     axios({
       method: "post",
       url:
-        "https://cors-anywhere.herokuapp.com/https://api.hackerearth.com/v3/code/compile/",
-      data: boddy /*,
-    headers: {'Content-Type': 'application/json',
-    'Access-Control-Request-Method': 'POST',
-    "Access-Control-Allow-Origin": " http://localhost:3000",
-		"Access-Control-Allow-Headers": "X-Requested-With" }*/,
+        "https://cors.bridged.cc/https://api.hackerearth.com/v4/partner/code-evaluation/submissions/",
+      data: postBody,
+      headers: {
+        "Content-Type": "application/json",
+        "client-secret": process.env.REACT_APP_HACKEREARTH_API_KEY,
+      },
     })
       .then((response) => {
         //handle success
-        console.log(response.data.compile_status);
-        this.setState({ compile: response.data.compile_status });
+        console.log(response);
+        setTimeout(
+          function () {
+            axios({
+              method: "get",
+              url: window.location.origin + "/coderesult",
+            })
+              .then((response) => {
+                this.setState({ compile: response.data.compile_status });
+              })
+              .catch((response) => {
+                console.log(response);
+              });
+          }.bind(this),
+          5000
+        );
       })
       .catch((response) => {
         //handle error
@@ -89,42 +118,66 @@ export default class IDE extends Component {
   runCode() {
     switch (this.state.language) {
       case "text/x-csrc":
-        boddy.set("lang", "C");
+        postBody["lang"] = "C";
+        //boddy.set("lang", "C");
         break;
       case "text/x-c++src":
-        boddy.set("lang", "CPP14");
+        postBody["lang"] = "CPP14";
+        //boddy.set("lang", "CPP14");
         break;
       case "text/x-java":
-        boddy.set("lang", "JAVA");
+        postBody["lang"] = "JAVA";
+        //boddy.set("lang", "JAVA");
         break;
       case "python":
-        boddy.set("lang", "PYTHON3");
+        postBody["lang"] = "PYTHON3";
+        //boddy.set("lang", "PYTHON3");
         break;
     }
-    console.log("code status:" + boddy.get("lang"));
+    //console.log("code status:" + boddy.get("lang"));
 
-    if(inputisthere==true){
-        console.log(this.state.inputthings);
-        boddy.set("input", this.state.inputthings);
+    if (inputisthere == true) {
+      console.log(this.state.inputthings);
+      postBody["input"] = this.state.inputthings;
+      //boddy.set("input", this.state.inputthings);
     }
 
-    boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
+    //boddy.append("client_secret", process.env.REACT_APP_HACKEREARTH_API_KEY);
     //boddy.append('lang', 'PYTHON3');
-    boddy.append("source", this.state.code);
+    //boddy.append("source", this.state.code);
+    //boddy.append("callback", "https://336a7eef90c3.ngrok.io/codehook");
+
+    postBody["source"] = this.state.code;
+    postBody["callback"] = window.location.origin + "/codehook";
+
     axios({
       method: "post",
       url:
-        "https://cors-anywhere.herokuapp.com/https://api.hackerearth.com/v3/code/run/",
-      data: boddy /*,
-    headers: {'Content-Type': 'application/json',
-    'Access-Control-Request-Method': 'POST',
-    "Access-Control-Allow-Origin": " http://localhost:3000",
-		"Access-Control-Allow-Headers": "X-Requested-With" }*/,
+        "https://cors.bridged.cc/https://api.hackerearth.com/v4/partner/code-evaluation/submissions/",
+      data: postBody,
+      headers: {
+        "Content-Type": "application/json",
+        "client-secret": process.env.REACT_APP_HACKEREARTH_API_KEY,
+      },
     })
       .then((response) => {
         //handle success
-        console.log(response.data.run_status);
-        this.setState({ run: response.data.run_status.output });
+        console.log(response);
+        setTimeout(
+          function () {
+            axios({
+              method: "get",
+              url: window.location.origin + "/coderesult",
+            })
+              .then((response) => {
+                this.setState({ run: response.data.run_status });
+              })
+              .catch((response) => {
+                console.log(response);
+              });
+          }.bind(this),
+          5000
+        );
       })
       .catch((response) => {
         //handle error
@@ -141,13 +194,13 @@ export default class IDE extends Component {
 
   getInput(event) {
     this.setState({ inputthings: event.target.value });
-    boddy.set("input",this.state.inputthings);
-    inputisthere=true;
+    boddy.set("input", this.state.inputthings);
+    inputisthere = true;
   }
   render() {
     return (
       <div className="container-fluid">
-      <br/>
+        <br />
         <div className="row">
           <div className="col-md-12">
             <h3 className="text-left">Live Code Compiler</h3>
@@ -170,9 +223,9 @@ export default class IDE extends Component {
                 </option>
               </select>
             </div>
-            </div>
-            <div className="col-md-12">
-            <br/>
+          </div>
+          <div className="col-md-12">
+            <br />
             <CodeMirror
               value="<h1>I ♥ react-codemirror2</h1>"
               options={{
@@ -189,8 +242,8 @@ export default class IDE extends Component {
             />
           </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div className="row">
           <div className="col-md-4 ">
             <div className="card">
