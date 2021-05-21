@@ -45,6 +45,7 @@ jobs:
         npm run build --if-present
       env:
         CI: ""
+        REACT_APP_HACKEREARTH_API_KEY: ${{ secrets.REACT_APP_HACKEREARTH_API_KEY }}
       working-directory: ./client
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
