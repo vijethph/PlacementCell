@@ -5,7 +5,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-const routePrefix = "http://localhost:3000/v1";
+const routePrefix = `${window.location.origin}/v1`;
 
 export interface IUser {
   firstName?: string;
