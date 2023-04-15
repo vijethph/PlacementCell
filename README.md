@@ -7,6 +7,7 @@
 [![made-with-react](https://img.shields.io/badge/made%20with-react-143d59.svg?style=for-the-badge&labelColor=f4b41a&logo=react)](https://reactjs.org)
 [![forthebadge](https://forthebadge.com/images/badges/fo-real.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-energy-drinks.svg)](https://forthebadge.com)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/vijethph/PlacementCell)
 
 <br />
 <p align="center">
@@ -60,6 +61,7 @@ This project is entirely built with the following components and languages:
 - [Express Framework](https://expressjs.com/)
 - [React Framework](https://reactjs.org)
 - [Node.js Runtime](https://nodejs.org/en)
+- [TypeScript](https://www.typescriptlang.org/)
 - [HackerEarth API](https://www.hackerearth.com/docs/wiki/developers/v3/)
 
 <!-- GETTING STARTED -->
@@ -91,7 +93,7 @@ git clone https://github.com/vijethph/PlacementCell.git
 cd PlacementCell
 ```
 
-3. Modify the MongoDB URI in `server.js` file as per your DB configuration. Sign up for HackerEarth, retrieve an API key, and place it in `IDE.js` file inside `client/src/components` folder. Then import the required dependencies in project folder and `client` folders using
+3. Modify the MongoDB URI in `server.ts` file inside `src` folder as per your DB configuration. Sign up for HackerEarth, retrieve an API key, and put it in `codes.ts` file inside `src/routes` folder. Then import the required dependencies in both of these folders: `src` and `client`, using
 
 ```sh
 npm install
@@ -103,13 +105,20 @@ npm install
 npm run dev
 ```
 
+
 The app should be running in `http://localhost:3000` in your browser.
+
+Another way to install this app is to use Docker Compose. Run this command to start the app:
+```
+docker-compose up
+```
+This will run the app at http://localhost:3000, which can be seen in your browser.
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Once the app starts, you can create an account in `Register` page, and then login as student to find the various features of this project. Optionally, you can import the companies details using the MongoDB dump named `dump.zip` in project folder, using the command `mongorestore dump`. You can watch practice videos, have some discussion with your peers, and test yourself in quiz.
+Once the app starts, you can create an account in `Register` page, and then login as student to find the various features of this project. Optionally, you can import the companies details using the MongoDB init script named `mongoDBSetup.js` in project folder, using the command `mongo MONGODB_URI mongoDBSetup.js`. You can watch practice videos, have some discussion with your peers, and test yourself in quiz.
 
 You can also use the code compiler and try to improve your programming skills. You can view the recruitment updates of companies in `Companies` dashboard.
 

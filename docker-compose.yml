@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+  app:
+    image: "placementcell-app:latest"
+    container_name: placementcell-app
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://testcomposeuser:Test123@mongodb:27017/placementcell?retryWrites=true&w=majority
+      - JWT_SECRET_KEY=$JWT_SECRET_KEY
+      - HACKEREARTH_API_KEY=$HACKEREARTH_API_KEY
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: "mongo:6.0"
+    container_name: mongo
+    volumes:
+      - ./mongoDBSetup.js:/docker-entrypoint-initdb.d/setup.js:ro
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=testcomposeuser
+      - MONGO_INITDB_ROOT_PASSWORD=Test123
+      - MONGO_INITDB_DATABASE=placementcell

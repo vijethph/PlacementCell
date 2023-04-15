@@ -1,0 +1,7 @@
+*.js
+*.config.ts
+.eslintrc.js
+dist
+node_modules
+.env
+

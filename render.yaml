@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: placementcell-app
+    env: docker
+    repo: https://github.com/vijethph/PlacementCell.git
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: HACKEREARTH_API_KEY
+        sync: false
+      - key: PORT
+        value: 10000

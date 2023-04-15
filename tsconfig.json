@@ -1,0 +1,22 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "include": ["./src/**/*", "./tests/**/*"],
+  "compilerOptions": {
+    "target": "es2020",
+    "strict": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "module": "commonjs",
+    "lib": ["es2020"],
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+    "outDir": "."
+  },
+  "exclude": ["node_modules"]
+}
